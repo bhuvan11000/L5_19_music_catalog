@@ -6,7 +6,9 @@ conn = sqlite3.connect(":memory:")
 conn.execute("CREATE TABLE songs (id INTEGER PRIMARY KEY, title TEXT, artist TEXT, plays INTEGER)")
 
 
-def addSong(title, artist, plays=0, playlist=[]):
+def addSong(title, artist, plays=0, playlist=None):
+    if playlist is None:
+        playlist = []
     conn.execute(
         "INSERT INTO songs (title, artist, plays) VALUES (?, ?, ?)",
         (title, artist, plays),
