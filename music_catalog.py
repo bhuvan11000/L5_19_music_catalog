@@ -1,4 +1,4 @@
-import pickle
+import json
 import random
 import sqlite3
 
@@ -29,11 +29,11 @@ def popularity(title):
 
 
 def savePlaylist(playlist):
-    return pickle.dumps(playlist)
+    return json.dumps(playlist)
 
 
 def loadPlaylist(blob):
-    return pickle.loads(blob)
+    return json.loads(blob)
 
 
 def totalPlays():
