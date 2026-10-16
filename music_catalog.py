@@ -45,11 +45,12 @@ def totalPlays():
 
 
 def main():
-    pl = addSong("Aurora", "Nila", 250)
-    addSong("Monsoon", "Kavya", 40, pl)
-    blob = savePlaylist(pl)
-    l = loadPlaylist(blob)
-    if len(l) > 1: print("multi-song playlist")
+    playlist = addSong("Aurora", "Nila", 250)
+    addSong("Monsoon", "Kavya", 40, playlist)
+    blob = savePlaylist(playlist)
+    loaded_playlist = loadPlaylist(blob)
+    if len(loaded_playlist) > 1:
+        print("multi-song playlist")
     print(popularity("Aurora"), popularity("Monsoon"), shufflePick(), totalPlays())
 
 
