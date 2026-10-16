@@ -26,8 +26,7 @@ def popularity(title):
     row = conn.execute("SELECT plays FROM songs WHERE title = ?", (title,)).fetchone()
     if row is None:
         return "unknown"
-    else:
-        return "popular" if row[0] > 100 else "niche"
+    return "popular" if row[0] > 100 else "niche"
 
 
 def savePlaylist(playlist):
