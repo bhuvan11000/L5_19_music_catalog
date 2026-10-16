@@ -1,5 +1,5 @@
 import json
-import random
+import secrets
 import sqlite3
 
 conn = sqlite3.connect(":memory:")
@@ -17,7 +17,7 @@ def addSong(title, artist, plays=0, playlist=[]):
 
 def shufflePick():
     ids = [r[0] for r in conn.execute("SELECT id FROM songs")]
-    return random.choice(ids)
+    return secrets.choice(ids)
 
 
 def popularity(title):
