@@ -41,7 +41,7 @@ def loadPlaylist(blob):
 def totalPlays():
     try:
         return conn.execute("SELECT SUM(plays) FROM songs").fetchone()[0]
-    except:
+    except sqlite3.Error:
         return 0
 
 
