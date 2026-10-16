@@ -7,7 +7,10 @@ conn.execute("CREATE TABLE songs (id INTEGER PRIMARY KEY, title TEXT, artist TEX
 
 
 def addSong(title, artist, plays=0, playlist=[]):
-    conn.execute("INSERT INTO songs (title, artist, plays) VALUES ('%s', '%s', %d)" % (title, artist, plays))
+    conn.execute(
+        "INSERT INTO songs (title, artist, plays) VALUES (?, ?, ?)",
+        (title, artist, plays),
+    )
     playlist.append(title)
     return playlist
 
